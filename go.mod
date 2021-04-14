@@ -1,4 +1,4 @@
-module github.com/swathins079/charge-my-wifi
+module github.com/swathins079/chargemywifi
 
 go 1.15
 
