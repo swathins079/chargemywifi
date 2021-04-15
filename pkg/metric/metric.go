@@ -25,7 +25,6 @@ type Getter interface {
 }
 
 type Setter interface {
-	Label(model.Label)
 	Value(string)
 }
 
@@ -58,10 +57,6 @@ func (d *metric) OnNotify() {
 
 func (d *metric) Rgx() *regexp.Regexp {
 	return d.rgx
-}
-
-func (d *metric) Label(label model.Label) {
-	d.label = label
 }
 
 func (d *metric) Value(value string) {

@@ -3,7 +3,7 @@ package alert
 import (
 	"log"
 
-	toastlib "gopkg.in/toast.v1"
+	toastlib "github.com/swathins079/toast"
 )
 
 type toast struct {
@@ -32,9 +32,9 @@ func (t *toast) Push() {
 		AppID:   "{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\WindowsPowerShell\\v1.0\\powershell.exe", // hard coding for testing
 		Title:   t.title,
 		Message: t.message,
-		Audio:   toastlib.Default,
+		Audio:   toastlib.Reminder,
 		Actions: []toastlib.Action{
-			{"protocol", "Cancel", ""},
+			{Type: "protocol", Label: "Cancel", Arguments: ""},
 		},
 	}
 	err := notification.Push()
