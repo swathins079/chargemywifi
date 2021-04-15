@@ -48,7 +48,7 @@ func (d *metric) OnNotify() {
 		log.Fatalf("Failed to get value")
 	}
 	log.Println("Got a Value: ", val)
-	alert, ok := alert.AlertPool[fmt.Sprintf("%s-%s", d.label, val)]
+	alert, ok := alert.AlertPool[fmt.Sprintf("%s-%s-%s", model.OperatingSystem, d.label, val)]
 	if !ok {
 		return
 	}

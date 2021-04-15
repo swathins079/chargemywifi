@@ -11,9 +11,9 @@ const (
 	JIOFIURL string = "http://jiofi.local.html/cgi-bin/en-jio/mStatus.html"
 )
 
-type NotifierType uint8
+type AlertType uint8
 
 const (
-	Toast NotifierType = iota
+	Toast AlertType = iota
 	Notify
 )
