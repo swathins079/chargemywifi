@@ -1,11 +1,16 @@
 
 BIN_NAME="chargemywifi"
 
-exe:
-	env GOOS=windows GOARCH=amd64 go build -o $(BIN_NAME).exe -v .	
+exe: clean
+	env \
+	GOOS=windows \
+	GOARCH=amd64 \
+	go build  \
+	-ldflags "-X github.com/swathins079/chargemywifi/pkg/model.OperatingSystem=0" -o $(BIN_NAME).exe -v .
 
-bin:
-	go build -o $(BIN_NAME) -v .
+bin: clean
+	go build \
+	-ldflags "-X github.com/swathins079/chargemywifi/pkg/model.OperatingSystem=1" -o $(BIN_NAME) -v .
 
 clean:
-	rm $(BIN_NAME)*
+	rm -f $(BIN_NAME)*

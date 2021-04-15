@@ -26,6 +26,6 @@ func (n *notify) Message(msg string) Alert {
 }
 
 func (n *notify) Push() {
-	cmd := exec.Command("notify-send", "-i", n.title, n.message)
+	cmd := exec.Command("notify-send", "-t", "5000", n.title, n.message)
 	cmd.Run()
 }
