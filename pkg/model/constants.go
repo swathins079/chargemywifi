@@ -17,3 +17,8 @@ const (
 	Toast AlertType = iota
 	Notify
 )
+
+const (
+	Reminder = "reminder"
+	Alarm    = "loopingalarm"
+)
