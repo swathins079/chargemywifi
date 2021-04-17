@@ -12,12 +12,6 @@ import (
 	"github.com/swathins079/chargemywifi/pkg/statscollector"
 )
 
-/*
-subscriber and unsubscriber using rest API
-
-
-*/
-
 func main() {
 	log.Println("Application Started.")
 	defer exit()
@@ -31,7 +25,7 @@ func main() {
 
 	log.Println("Starting cron jobs.")
 	s := gocron.NewScheduler(time.UTC)
-	s.Every(1).Minute().Do(sc.Get)
+	s.Every(1).Minute().Do(sc.Collect)
 	s.Every(1).StartAt(time.Now().Add(30 * time.Second)).Minute().Do(sc.Notify)
 	s.StartAsync()
 }

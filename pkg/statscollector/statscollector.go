@@ -11,7 +11,7 @@ import (
 
 type StatsCollector interface {
 	Notifier
-	Get()
+	Collect()
 }
 
 type Notifier interface {
@@ -28,7 +28,7 @@ func New() StatsCollector {
 	return &wifiStats{stats: make(map[metric.Metric]struct{})}
 }
 
-func (ws *wifiStats) Get() {
+func (ws *wifiStats) Collect() {
 	resp, err := http.Get(model.JIOFIURL)
 	checkError(err)
 	defer resp.Body.Close()
