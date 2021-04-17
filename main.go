@@ -1,6 +1,8 @@
 package main
 
 import (
+	//"fmt"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -16,6 +18,7 @@ func main() {
 	log.Println("Application Started.")
 	defer exit()
 
+	fmt.Errorf("test", t)
 	dBattery := metric.New(model.LabelBatteryQuantity)
 	dChargeStatus := metric.New(model.LabelChargeStatus)
 
