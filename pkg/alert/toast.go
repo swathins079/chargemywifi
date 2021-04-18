@@ -45,6 +45,6 @@ func (t *toast) Push() {
 	}
 	err := notification.Push()
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 	}
 }

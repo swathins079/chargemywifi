@@ -34,7 +34,6 @@ func New(alertType model.AlertType) Alert {
 		return &toast{}
 	case model.Notify:
 		return &notify{}
-	default:
 	}
 	return nil
 }

@@ -36,6 +36,5 @@ func exit() {
 	select {
 	case <-exitChannel:
 		log.Println("Application stopped.")
-		os.Exit(0)
 	}
 }
