@@ -57,6 +57,6 @@ func (ws *wifiStats) Notify() {
 // checkError is utility function which checks for error.
 func checkError(err error) {
 	if err != nil {
-		log.Fatal("Failure: ", err)
+		log.Println("Failure: ", err)
 	}
 }

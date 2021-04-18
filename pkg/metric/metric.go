@@ -45,9 +45,10 @@ func New(label model.Label) Metric {
 func (d *metric) OnNotify() {
 	val, ok := d.value.Load(d.label)
 	if !ok {
-		log.Fatalf("Failed to get value")
+		log.Println("Failed to get value")
+		return
 	}
-	log.Println("Got a Value: ", val)
+	log.Println("Got a Value:", val)
 	alert, ok := alert.AlertPool[fmt.Sprintf("%s-%s-%s", model.OperatingSystem, d.label, val)]
 	if !ok {
 		return
