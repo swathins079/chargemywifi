@@ -9,6 +9,7 @@ type notify struct {
 	title   string
 	message string
 	audio   string
+	count   int
 }
 
 func (n *notify) ID(id string) Alert {
@@ -28,6 +29,11 @@ func (n *notify) Message(msg string) Alert {
 
 func (n *notify) Audio(audio string) Alert {
 	n.audio = audio
+	return n
+}
+
+func (n *notify) Count(count int) Alert {
+	n.count = count
 	return n
 }
 

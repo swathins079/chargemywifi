@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/go-co-op/gocron"
-	"github.com/swathins079/chargemywifi/pkg/metric"
-	"github.com/swathins079/chargemywifi/pkg/model"
-	"github.com/swathins079/chargemywifi/pkg/statscollector"
+	"github.com/swathinsankaran/chargemywifi/pkg/metric"
+	"github.com/swathinsankaran/chargemywifi/pkg/model"
+	"github.com/swathinsankaran/chargemywifi/pkg/statscollector"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/swathins079/chargemywifi/pkg/model"
+	"github.com/swathinsankaran/chargemywifi/pkg/model"
 )
 
 func TestNew(t *testing.T) {

@@ -3,7 +3,7 @@ package alert
 import (
 	"log"
 
-	toastlib "github.com/swathins079/toast"
+	toastlib "github.com/swathinsankaran/toast"
 )
 
 type toast struct {
@@ -11,6 +11,7 @@ type toast struct {
 	title   string
 	message string
 	audio   string
+	count   int
 }
 
 func (t *toast) ID(id string) Alert {
@@ -33,7 +34,15 @@ func (t *toast) Audio(audio string) Alert {
 	return t
 }
 
+func (t *toast) Count(count int) Alert {
+	t.count = count
+	return t
+}
+
 func (t *toast) Push() {
+	if t.count == 0 {
+		return
+	}
 	notification := toastlib.Notification{
 		AppID:   "{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\\WindowsPowerShell\\v1.0\\powershell.exe", // hard coding for testing
 		Title:   t.title,
@@ -47,4 +56,5 @@ func (t *toast) Push() {
 	if err != nil {
 		log.Println(err)
 	}
+	t.count--
 }

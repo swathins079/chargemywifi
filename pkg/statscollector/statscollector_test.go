@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/swathins079/chargemywifi/pkg/metric"
-	"github.com/swathins079/chargemywifi/pkg/model"
+	"github.com/swathinsankaran/chargemywifi/pkg/metric"
+	"github.com/swathinsankaran/chargemywifi/pkg/model"
 )
 
 func TestNew(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"sync"
 
-	"github.com/swathins079/chargemywifi/pkg/alert"
-	"github.com/swathins079/chargemywifi/pkg/model"
+	"github.com/swathinsankaran/chargemywifi/pkg/alert"
+	"github.com/swathinsankaran/chargemywifi/pkg/model"
 )
 
 type Metric interface {
