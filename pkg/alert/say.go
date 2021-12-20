@@ -12,32 +12,36 @@ type say struct {
 	count   int
 }
 
-func (n *say) ID(id string) Alert {
-	n.id = id
-	return n
+func (s *say) ID(id string) Alert {
+	s.id = id
+	return s
 }
 
-func (n *say) Title(title string) Alert {
-	n.title = title
-	return n
+func (s *say) Title(title string) Alert {
+	s.title = title
+	return s
 }
 
-func (n *say) Message(msg string) Alert {
-	n.message = msg
-	return n
+func (s *say) Message(msg string) Alert {
+	s.message = msg
+	return s
 }
 
-func (n *say) Audio(audio string) Alert {
-	n.audio = audio
-	return n
+func (s *say) Audio(audio string) Alert {
+	s.audio = audio
+	return s
 }
 
-func (n *say) Count(count int) Alert {
-	n.count = count
-	return n
+func (s *say) Count(count int) Alert {
+	s.count = count
+	return s
 }
 
-func (n *say) Push() {
-	cmd := exec.Command("say", n.message)
+func (s *say) Push() {
+	if s.count == 0 {
+		return
+	}
+	cmd := exec.Command("say", s.message)
 	cmd.Run()
+	s.count--
 }

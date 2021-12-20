@@ -38,6 +38,10 @@ func (n *notify) Count(count int) Alert {
 }
 
 func (n *notify) Push() {
+	if n.count == 0 {
+		return
+	}
 	cmd := exec.Command("notify-send", "-t", "5000", n.title, n.message)
 	cmd.Run()
+	n.count--
 }
