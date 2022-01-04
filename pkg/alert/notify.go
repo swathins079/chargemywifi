@@ -9,7 +9,6 @@ type notify struct {
 	title   string
 	message string
 	audio   string
-	count   int
 }
 
 func (n *notify) ID(id string) Alert {
@@ -32,16 +31,7 @@ func (n *notify) Audio(audio string) Alert {
 	return n
 }
 
-func (n *notify) Count(count int) Alert {
-	n.count = count
-	return n
-}
-
 func (n *notify) Push() {
-	if n.count == 0 {
-		return
-	}
 	cmd := exec.Command("notify-send", "-t", "5000", n.title, n.message)
 	cmd.Run()
-	n.count--
 }

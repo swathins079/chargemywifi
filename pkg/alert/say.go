@@ -9,7 +9,6 @@ type say struct {
 	title   string
 	message string
 	audio   string
-	count   int
 }
 
 func (s *say) ID(id string) Alert {
@@ -32,16 +31,7 @@ func (s *say) Audio(audio string) Alert {
 	return s
 }
 
-func (s *say) Count(count int) Alert {
-	s.count = count
-	return s
-}
-
 func (s *say) Push() {
-	if s.count == 0 {
-		return
-	}
 	cmd := exec.Command("say", s.message)
 	cmd.Run()
-	s.count--
 }
